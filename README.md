@@ -112,6 +112,14 @@ Irrigation = *function(crop, soil_type, rainfall)*
 9. Bhashini translates it to the selected language.
 10. Final output shown to the user.
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/dce9dec0-1a7b-4b86-9c6f-da17a53c7e22" width="500" height="500">
+</p>
+
+
+
+    
+
 ---
 
 ## 🛠️ Technologies Used
