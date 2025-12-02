@@ -64,7 +64,7 @@ The overall flow is: <br>
 
 4.Soil type retrieved from district mapping
 
-5. Crop recommendation model predicts the crop
+5.Crop recommendation model predicts the crop
 
 6.Irrigation method determined using rule-based logic
 
