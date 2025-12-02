@@ -114,43 +114,6 @@ Irrigation = *function(crop, soil_type, rainfall)*
 
 ---
 
-## 👥 Team Contributions
-
-### **👤 Member 1 — Aditya Pal**
-
-**Irrigation System, LLM Generation, Translation Layer**
-
-* Designed rule-based irrigation recommendation engine
-* Implemented LLM-based explanation layer
-* Integrated Bhashini for multilingual output
-* Authored report sections: Irrigation, LLM Synthesis, Translation
-
-### **👤 Member 2 — Anumala Sravya**
-
-**Disease Detection Pipeline**
-
-* Dataset prep & augmentation
-* Implemented & trained ResNet-9 model
-* Built leaf-image upload and inference module
-* Authored report sections: Dataset Processing, Model Architecture, Evaluation
-
-### **👤 Member 3 — Urvashi**
-
-**Crop Model, Weather API, Soil Mapping**
-
-* Trained Decision Tree crop recommendation model
-* Integrated OpenWeatherMap API
-* Built district → soil zone mapping
-* Authored report sections: Crop Model, Soil Mapping, Weather Integration
-
-### **🤝 Shared Work (All Members)**
-
-* UI design & integration
-* Final report writing
-* Project presentation creation & delivery
-
----
-
 ## 🛠️ Technologies Used
 
 * **Machine Learning:** scikit-learn (Decision Tree)
