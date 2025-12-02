@@ -116,6 +116,9 @@ Irrigation = *function(crop, soil_type, rainfall)*
   <img src="https://github.com/user-attachments/assets/dce9dec0-1a7b-4b86-9c6f-da17a53c7e22" width="500" height="500">
 </p>
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/7e97ba5b-6125-4bb2-a348-17cbea1b2bb0" width="400" height="400">
+</p>
 
 
     
