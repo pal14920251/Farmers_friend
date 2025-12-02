@@ -1,0 +1,26 @@
+{
+    "location_state": "Telangana",
+    "location_district": "Peddapalli",
+    "weather_forecast": {
+        "city": "Peddapalli",
+        "country": "IN",
+        "weather": "clear sky",
+        "temperature_C": 19.4,
+        "feels_like_C": 18.9,
+        "humidity_percent": 58,
+        "pressure_hPa": 1014,
+        "wind_speed_m_s": 1.9,
+        "precipitation_mm": 0.0
+    },
+    "weather_summary": "Temperature: 19.4\u00b0C, Humidity: 58%, Description: clear sky",
+    "soil_nitrogen": 129.5105360164295,
+    "soil_phosphorus": 50.33574684576404,
+    "soil_potassium": 350.7447679910625,
+    "soil_ph": 8.227092931976163,
+    "recommended_crop": "chickpea",
+    "irrigation_type": [
+        "Drip",
+        "Sprinkler"
+    ],
+    "target_language": "tel_Telu"
+}
