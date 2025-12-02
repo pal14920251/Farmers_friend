@@ -1,0 +1,14 @@
+Soil_Type,Soil_Texture,Water_Behavior,Recommended_Irrigation
+Alluvial Soil,Sandy Loam / Loam / Clay Loam,Moderate to fast drainage,"Drip,Sprinkler"
+Black Soil,Clay / Clay Loam,High water retention (cracks in summer),"Furrow,Basin,Flood"
+Red Soil,Sandy to Loamy,Moderate drainage,"Drip,Sprinkler"
+Laterite Soil,Sandy Loam,Porous and leached,Drip
+Desert Soil,Sandy,Very fast drainage,Drip
+Coastal Soil,Sandy Loam,Humid and saline,Sprinkler
+Mountain Soil,Sandy / Shallow,Runoff on slopes,"Drip,Sprinkler"
+Peaty Soil,Organic Rich,Waterlogged,Controlled Irrigation
+Saline Soil,Fine Textured,High salt concentration,Controlled Irrigation
+Coastal Deltaic Soil,Silty Loam,Good moisture retention,"Sprinkler,Surface Irrigation"
+Alluvial (Coastal Variant),Sandy Loam,Moderate drainage,"Sprinkler,Drip"
+Lateritic Coastal Soil,Sandy Loam,Fast drainage,Drip
+Cold Desert Soil,Sandy/Gravel,Very low moisture,Drip
