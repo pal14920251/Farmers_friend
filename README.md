@@ -178,4 +178,3 @@ Irrigation = *function(crop, soil_type, rainfall)*
 This prototype demonstrates how **AI can be adapted to real-world agricultural challenges** in a practical, accessible way for farmers in low-resource contexts. By combining machine learning, computer vision, and a guided multilingual interface, the system supports better decision-making and encourages more resilient farming practices.
 
 ---
-
