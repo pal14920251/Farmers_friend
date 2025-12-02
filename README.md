@@ -1,136 +1,181 @@
-# Farmers_friend
-**AI-Driven Agricultural Advisory System for Indian Farmers** <br>
-A modular system that provides crop recommendation, irrigation guidance, and plant-disease detection for Indian farmers.
+# 🌾 AI-Powered Agricultural Decision Support System
 
-**Overview** <br>
-This project focuses on building an accessible, multilingual agricultural advisory system designed for Indian farmers, especially those in regions with low digital literacy or limited connectivity. The system combines machine learning models, computer vision,irrigation logics, weather API integration, and language translation to provide clear and localized recommendations.
+*A multilingual, accessible AI tool for crop recommendation, irrigation planning, and plant disease detection.*
 
-Farmers can input soil nutrient values (or can select their location and we will take the required info), upload images of crop leaves, and receive explanations about suitable crops, irrigation methods, and potential plant diseases—all through a guided interface.
+---
+
+## 📌 Overview
+
+Small and marginal farmers across India often lack access to reliable, localized, and scientific agricultural guidance. Many existing tools are either too generic or too complex, making them inaccessible to low-literacy and low-connectivity regions.
+
+This project builds a **lightweight, multilingual AI decision-support system** that helps farmers make data-driven choices about:
+
+* **Which crop to grow**
+* **What irrigation method to use**
+* **What disease is affecting their plant**
+
+All recommendations are generated using **machine learning, computer vision, weather APIs, rule-based agronomic logic**, and a **guided user interface**, ensuring ease of use.
+
+---
+
+## 🎯 Project Goals
+
+* Provide *localized, trustworthy* crop and irrigation advice.
+* Enable *early disease detection* using computer vision.
+* Build a *simple, multilingual UI* that works for real-world Indian farming conditions.
+* Integrate AI with *soil health card values, real-time weather data*, and farmer inputs.
+
+---
+
+## 🧱 System Architecture
+
+The system integrates multiple AI modules into a unified workflow:
+
+### 1. **Crop Recommendation Model**
+
+* **Dataset:** Kaggle Crop Recommendation Dataset
+* **Model:** Decision Tree Classifier
+* **Features:**
+
+  * N, P, K
+  * pH
+  * Temperature
+  * Humidity
+  * Rainfall
+* **Weather data** (temperature, humidity, rainfall) fetched using **OpenWeatherMap API**.
+
+### 2. **Soil-Type Identification**
+
+* District → soil-zone mapping
+* Soil type automatically retrieved based on user-selected district
+* Soil type feeds into irrigation logic
+
+### 3. **Irrigation Recommendation Engine**
+
+A rule-based engine informed by agricultural domain knowledge:
+
+* Sandy soil + low rainfall → **Drip irrigation**
+* Clay soil + moderate rainfall → **Furrow/Flood irrigation**
+* High water-demand crop + adequate rainfall → **Sprinkler**
+
+Irrigation = *function(crop, soil_type, rainfall)*
+
+### 4. **Plant Disease Detection (Computer Vision)**
+
+* **Dataset:** PlantVillage (with basic augmentations)
+* **Model:** Transfer-learning using **ResNet-50**, modified with:
+
+  * Pretrained ImageNet backbone
+  * Final FC layer replaced with `Linear(2048 → num_classes)`
+* **Preprocessing:**
+
+  * Resize → Center-crop (224×224)
+  * Normalize (ImageNet mean/std)
+  * Random flips & rotations
+* **Training Details:**
+
+  * Loss: Cross-Entropy
+  * Optimizer: Adam
+  * LR Scheduler: StepLR / ReduceLROnPlateau
+* **Inference:**
+
+  * Farmer uploads a leaf image → Model outputs the predicted disease class.
 
 
-**Objectives** <br>
-Provide *simple, localized crop recommendations* based on NPK, pH, temperature, humidity, and rainfall.
+### 5. **LLM-Based Expert Explanation Layer**
 
-Suggest _appropriate irrigation methods_ based on soil type, crop type, and rainfall.
+* Aggregates:
 
-Enable _plant disease identification_ using uploaded leaf images.
+  * Crop recommendation
+  * Soil type
+  * Irrigation strategy
+  * Disease diagnosis
+* Generates a natural, unified agricultural advisory.
 
-Deliver explanations in multiple Indian languages through a translation layer.
+### 6. **Multilingual Translation (Bhashini)**
 
-Keep the system lightweight and usable even in rural environments with limited connectivity.
+* Converts final output to any Indian language selected by the farmer.
+* English responses bypass translation.
 
-**System Components** <br>
+---
 
-**1. Crop Recommendation Model** <br>
-Uses a Decision Tree Classifier trained on the Crop Recommendation Dataset.
-Features used: Nitrogen (N), Phosphorus (P), Potassium (K), temperature, humidity, pH, and rainfall.
-During real-world use, farmers provide soil values, and weather data is fetched through the OpenWeatherMap API.
-The model predicts a suitable crop for the given conditions.
+## 🔄 End-to-End Workflow
 
-**2. Soil Type Identification** <br>
-A district-to-soil-zone mapping provides soil type information (e.g., alluvial, black, red).
-This is used to refine the irrigation method recommendation.
+1. User selects **language** and **district**.
+2. Enters **soil nutrient values** (N, P, K, pH).
+3. System fetches **weather** via API.
+4. Crop Recommendation Model predicts best crop.
+5. Soil type is auto-selected based on district.
+6. Irrigation engine recommends suitable method.
+7. (Optional) User uploads a leaf image → Disease detection model predicts disease.
+8. LLM synthesizes a unified advisory.
+9. Bhashini translates it to the selected language.
+10. Final output shown to the user.
 
-**3. Irrigation Recommendation** <br>
-A rule-based system uses the predicted crop, rainfall level, and soil type to select an irrigation method.
-Examples from the project:
-      Sandy soil + low rainfall → Drip irrigation
-      Clay soil + moderate rainfall → Furrow/Flood irrigation
-      High water-demand crops + adequate rainfall → Sprinkler irrigation
+---
 
-**4. Disease Detection using Computer Vision** <br>
-Uses the PlantVillage dataset with self-augmentation.
-_Preprocessing includes:_ resizing, normalization, flips, rotations.
-_Model used:_ ResNet-9
-Chosen for its balance of classification performance and computational efficiency.
-Training uses Cross-Entropy Loss, Adam optimizer, and One-Cycle learning rate scheduling.
-Users upload a leaf image, and the model predicts the disease class.
+## 👥 Team Contributions
 
-**5. LLM-Based Explanation Layer** <br>
-Once the crop, soil type, irrigation suggestion, and disease result are obtained, they are passed to an LLM.
-The LLM generates a **single agricultural advisory message**, combining all results in a clear and coherent way.
+### **👤 Member 1 — Aditya Pal**
 
-**6. Translation Layer (Bhashini)** <br>
+**Irrigation System, LLM Generation, Translation Layer**
 
-The LLM output is translated into the user's chosen language using Bhashini, allowing the final advice to be displayed in a familiar language.
+* Designed rule-based irrigation recommendation engine
+* Implemented LLM-based explanation layer
+* Integrated Bhashini for multilingual output
+* Authored report sections: Irrigation, LLM Synthesis, Translation
 
-**System Workflow:** <br>
-The overall flow is: <br>
-1.User selects language and location
+### **👤 Member 2 — Anumala Sravya**
 
-2.Inputs soil values
+**Disease Detection Pipeline**
 
-3.Weather API fetches temperature, humidity
+* Dataset prep & augmentation
+* Implemented & trained ResNet-9 model
+* Built leaf-image upload and inference module
+* Authored report sections: Dataset Processing, Model Architecture, Evaluation
 
-4.Soil type retrieved from district mapping
+### **👤 Member 3 — Urvashi**
 
-5.Crop recommendation model predicts the crop
+**Crop Model, Weather API, Soil Mapping**
 
-6.Irrigation method determined using rule-based logic
+* Trained Decision Tree crop recommendation model
+* Integrated OpenWeatherMap API
+* Built district → soil zone mapping
+* Authored report sections: Crop Model, Soil Mapping, Weather Integration
 
-7.User uploads leaf image (optional)
+### **🤝 Shared Work (All Members)**
 
-8.LLM generates an integrated explanation
+* UI design & integration
+* Final report writing
+* Project presentation creation & delivery
 
-9.Translation layer converts result to user’s language
+---
 
-10.Final result shown to the farmer
+## 🛠️ Technologies Used
 
-**Datasets Used:** <br>
-**Crop Recommendation Dataset** <br>
+* **Machine Learning:** scikit-learn (Decision Tree)
+* **Deep Learning:** PyTorch (ResNet-9)
+* **Backend / APIs:** Python, OpenWeatherMap API
+* **Translation:** Bhashini (Indian languages)
+* **Frontend/UI:** Streamlit
+* **LLM:** Instructional generation layer (HuggingFace / local LLM)
 
-**PlantVillage Disease Detection Dataset** <br>
-Both datasets are publicly available and used for model training and evaluation.
+---
 
-**Team Contributions:**  <br>
-**Aditya Pal**
+## 🚀 Key Features
 
-Developed irrigation recommendation system
+* Multilingual guided UI
+* Crop recommendation using real weather + soil values
+* Rule-based irrigation suggestions
+* Deep learning–based disease detection
+* Unified agricultural advisory generated using LLM
+* Fully integrated translation layer for local languages
 
-Integrated LLM explanation layer
+---
 
-Implemented translation process
+## 🌱 Impact
 
-Wrote related sections in the final report
+This prototype demonstrates how **AI can be adapted to real-world agricultural challenges** in a practical, accessible way for farmers in low-resource contexts. By combining machine learning, computer vision, and a guided multilingual interface, the system supports better decision-making and encourages more resilient farming practices.
 
-**Anumala Sravya**
-
-Processed PlantVillage dataset
-
-Built and trained ResNet-9 disease detection model
-
-Developed inference pipeline
-
-Contributed dataset and model sections
-
-**Urvashi**
-
-Built crop recommendation model
-
-Integrated weather API
-
-Created district-to-soil mapping
-
-Authored crop model and weather integration sections
-
-**Shared Work**
-
-Interface development
-
-Complete report preparation
-
-Final project presentation
-
-**Expected Outcome**
-
-The final system aims to provide farmers with:
-
-1.Clear and localized crop suggestions
-
-2.Practical irrigation guidance
-
-3.Early detection of plant diseases
-
-4.Complete support in their preferred language
-
+---
 
