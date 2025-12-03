@@ -127,12 +127,12 @@ Irrigation = *function(crop, soil_type, rainfall)*
 
 ## 🛠️ Technologies Used
 
-* **Machine Learning:** scikit-learn (Decision Tree)
-* **Deep Learning:** PyTorch (ResNet-9)
-* **Backend / APIs:** Python, OpenWeatherMap API
+* **Machine Learning:** scikit-learn, numpy, pandas
+* **Deep Learning:** PyTorch
+* **Backend / APIs:** Python, OpenWeatherMap API, IMD API, HUGGING FACE API
 * **Translation:** Bhashini (Indian languages)
 * **Frontend/UI:** Streamlit
-* **LLM:** Instructional generation layer (HuggingFace / local LLM)
+* **LLM:** HuggingFace, LangChains
 
 ---
 
