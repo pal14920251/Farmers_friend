@@ -34,7 +34,7 @@ The system integrates multiple AI modules into a unified workflow:
 ### 1. **Crop Recommendation Model**
 
 * **Dataset:** Kaggle Crop Recommendation Dataset
-* **Model:** Decision Tree Classifier
+* **Model:** Random Forest Classifier
 * **Features:**
 
   * N, P, K
