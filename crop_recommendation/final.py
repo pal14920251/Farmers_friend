@@ -41,7 +41,6 @@ if choice == "y":
         "temperature": weather_data["temperature_C"],
         "humidity": weather_data["humidity_percent"],
         "ph": ph,
-        "rainfall": weather_data["precipitation_mm"] + 5.0,
     }
 
 else:
@@ -61,7 +60,6 @@ else:
         "temperature": temperature,
         "humidity": humidity,
         "ph": ph,
-        "rainfall": rainfall,
     }
 
 # -------- Prediction --------
